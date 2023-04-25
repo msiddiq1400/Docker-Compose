@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  redis-server: 
+    image: 'redis'
+
+  node-app:
+    restart: unless-stopped # four options, on-failure, no, always, unless-stopped
+    build: .
+    ports:
+      - "9002:9002"
+
+# default network for above two containers, no need to specify network
